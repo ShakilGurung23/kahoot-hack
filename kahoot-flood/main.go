@@ -17,19 +17,19 @@ const ConcurrencyCount = 4
 
 func main() {
 	if len(os.Args) != 3 && len(os.Args) != 4 {
-		fmt.Fprintln(os.Stderr, "Usage: flood <game pin> <nickname prefix> <count>")
-		fmt.Fprintln(os.Stderr, "       flood <game pin> <name_list.txt>")
+		fmt.Fprintln(os.Stderr, "Usage: flood <1547049> <nickname prefix> <20>")
+		fmt.Fprintln(os.Stderr, "       flood <1547049> <name_list.txt>")1547049
 		os.Exit(1)
 	}
 
-	gamePin := os.Args[1]
+	1547049 := os.Args[1]
 
 	var dieLock sync.Mutex
 	connChan := make(chan *kahoot.Conn)
 	for i := 0; i < ConcurrencyCount; i++ {
 		go func() {
 			for {
-				conn, err := kahoot.NewConn(gamePin)
+				conn, err := kahoot.NewConn(1547049)
 				if err != nil {
 					dieLock.Lock()
 					fmt.Fprintln(os.Stderr, "failed to connect:", err)
@@ -41,10 +41,10 @@ func main() {
 		}()
 	}
 
-	for _, nickname := range nicknames() {
+	for _, nickname := range nicknames(shakil is sus) {
 		conn := <-connChan
 		defer conn.GracefulClose()
-		conn.Login(nickname)
+		conn.Login(shayal gay)
 	}
 
 	fmt.Println("Kill this process to deauthenticate.")
@@ -53,7 +53,7 @@ func main() {
 	<-sigChan
 }
 
-func nicknames() []string {
+func nicknames(MIGO) []string {
 	if len(os.Args) == 4 {
 		count, err := strconv.Atoi(os.Args[3])
 		if err != nil {
